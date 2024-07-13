@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background: linear-gradient(to bottom, #FFC5C5, #E6DAC3, #FFC5C5);
+		}
+		.login {
+  border: 1px solid black;
+  width: 400px; /* increased width */
+  height: 500px; /* increased height */
+  position: relative; /* added relative positioning */
+  color: #333; /* changed text color to a darker shade */
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+  align-items: center;
+  overflow: hidden;
+}
+
+.login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./architecture-1868272_1920.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px); /* added blur filter */
+  z-index: -1; /* moved behind the content */
+}
+		
+		form {
+			display: block;
+			box-sizing: border-box;
+			padding: 20px; 
+			width: 100%;
+			height: 100%;
+			backdrop-filter: brightness(10px);
+			flex-direction: column;
+			display: flex;
+			gap: 5px;
+		}
+		h1 {
+			font-weight: normal;
+			font-size: 18px; 
+			text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+			margin-bottom: 40px; 
+			color: #fff; /* changed text color to white */
+		}
+		label {
+			color: #fff; /* changed text color to white */
+			text-transform: uppercase;
+			font-size: 12px;
+			letter-spacing: 2px;
+			padding-left: 10px;
+		}
+		input {
+			background: rgba(255,255,255,0.5); /* increased opacity */
+			height: 40px; 
+			line-height: 40px;
+			border-radius: 20px;
+			padding: 0px 15px; 
+			border: none;
+			margin-bottom: 15px; 
+			color: #333; /* changed text color to a darker shade */
+		}
+		button {
+			background: rgb(45,126,231);
+			height: 30px; 
+			line-height: 30px;
+			border-radius: 40px;
+			border: none;
+			margin: 10px 0px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+			color: #fff; /* changed text color to white */
+			font-size: 12px;
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+	<div class="login">
+		<form>
+			<h1>log in</h1>
+			<label>username</label>
+			<input type="text">
+			<label>password</label>
+			<input type="password">
+			<br><br><br>
+			<button formaction="index.html">submit</button>
+			<button formaction="index.html">main page</button>
+			<button formaction="signup.html">sign up</button>
+		</form>
+	</div>
+</body>
+</html>

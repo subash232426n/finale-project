@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom, #ff99cc, #ffff99); /* added mixed color background */
+}
+
+.login {
+  border: 1px solid black;
+  width: 450px; /* increased width */
+  height: auto; /* changed to auto */
+  background: url('./architecture-1868272_1920.jpg');
+  color: #333; /* changed text color to a darker shade */
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 30px; /* added padding */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px; /* added padding */
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 24px; /* increased font size */
+  text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+  margin-bottom: 40px; /* reduced margin */
+  color: #fff; /* changed text color to white */
+}
+
+label {
+  color: #fff; /* changed text color to white */
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding-left: 10px;
+}
+
+input {
+  background: rgba(255,255,255,0.3);
+  height: 40px; /* increased height */
+  line-height: 40px;
+  border-radius: 20px;
+  padding: 0px 20px; /* increased padding */
+  border: none;
+  margin-bottom: 20px; /* increased margin */
+  color: #333; /* changed text color to a darker shade */
+}
+
+button {
+  background: lightcoral;
+  height: 40px; /* increased height */
+  line-height: 40px;
+  border-radius: 40px;
+  border: none;
+  margin: 20px 0px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+  color: black; /* changed text color to white */
+  font-size: 14px;
+  text-transform: uppercase;
+  
+}
+
+.sign-up-button {
+  background: lightblue;
+  color: black;
+  margin-top: 20px;
+}</style>
+</head>
+<body>
+	<div class="login">
+		<form>
+			<h1>sign up</h1>
+			<label>username</label>
+			<input type="text" id="username" required>
+			<label>enter your email</label>
+			<input type="email" id="email" required>
+			<small id="email-error" style="color: red;"></small>
+			<label>new password</label>
+			<input type="password" id="new-password" required>
+			<label>re-enter password</label>
+			<input type="password" id="re-enter-password" required>
+			<small id="password-error" style="color: red;"></small>
+			<button onclick="location.href='index.html'">submit</button>
+			<button class="sign-up-button" onclick="location.href='login.html'">already have an account? log in</button>
+		</form>
+	</div>
+
+	<script>
+		const emailInput = document.getElementById('email');
+		const newPasswordInput = document.getElementById('new-password');
+		const reEnterPasswordInput = document.getElementById('re-enter-password');
+		const emailErrorElement = document.getElementById('email-error');
+		const passwordErrorElement = document.getElementById('password-error');
+
+		emailInput.addEventListener('input', () => {
+			const email = emailInput.value;
+			if (!validateEmail(email)) {
+				emailErrorElement.textContent = 'Invalid email address';
+			} else {
+				emailErrorElement.textContent = '';
+			}
+		});
+
+		newPasswordInput.addEventListener('input', () => {
+			const newPassword = newPasswordInput.value;
+			const reEnterPassword = reEnterPasswordInput.value;
+			if (newPassword!== reEnterPassword) {
+				passwordErrorElement.textContent = 'Passwords do not match';
+			} else {
+				passwordErrorElement.textContent = '';
+			}
+		});
+
+		reEnterPasswordInput.addEventListener('input', () => {
+			const newPassword = newPasswordInput.value;
+			const reEnterPassword = reEnterPasswordInput.value;
+if(newPassword!== reEnterPassword) {
+				passwordErrorElement.textContent = 'Passwords do not match';
+			} else {
+				passwordErrorElement.textContent = '';
+			}
+		});
+
+		function validateEmail(email) {
+			const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(String(email).toLowerCase());
+		}
+	</script>
+</body>
+</html>
